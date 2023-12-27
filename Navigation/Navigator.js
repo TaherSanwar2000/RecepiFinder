@@ -9,18 +9,12 @@ const Stack = createNativeStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name="MyHome" component={MyTabs} />
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
       <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen name="Favourite" component={Favourite} />
+
     </Stack.Navigator>
-  );
-}
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Favourite" component={Favourite} />
-    </Tab.Navigator>
   );
 }
 export default MyStack;

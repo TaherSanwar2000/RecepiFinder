@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Alert,
   ActivityIndicator,
+  StyleSheet,
 } from 'react-native';
 import HTML from 'react-native-render-html';
 
@@ -94,12 +95,7 @@ const Detail = () => {
             {recipe.dishTypes.join(', ')}
           </Text>
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 'bold',
-              marginTop: 8,
-              color: '#000',
-            }}>
+            style={styles.TextStyle}>
             Ingredients:
           </Text>
           {recipe.extendedIngredients.map(ingredient => (
@@ -108,12 +104,7 @@ const Detail = () => {
               style={{color: '#000'}}>{`${ingredient.original}`}</Text>
           ))}
           <Text
-            style={{
-              fontSize: 16,
-              fontWeight: 'bold',
-              marginTop: 8,
-              color: '#000',
-            }}>
+            style={styles.TextStyle}>
             Instructions:
           </Text>
           <HTML source={{html: recipe.instructions}} contentWidth={width} />
@@ -121,17 +112,7 @@ const Detail = () => {
       </ScrollView>
       <TouchableOpacity
         onPress={() => handleSave()}
-        style={{
-          position: 'absolute',
-          bottom: 16,
-          right: 16,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#e7feff',
-          height: 80,
-          width: 80,
-          borderRadius: 100,
-        }}>
+        style={styles.SaveButton}>
         <Image
           source={require('../asset/Images/wishlist.png')}
           style={{height: 40, width: 40}}
@@ -142,3 +123,22 @@ const Detail = () => {
 };
 
 export default Detail;
+const styles = StyleSheet.create({
+ TextStyle:{
+  fontSize: 16,
+  fontWeight: 'bold',
+  marginTop: 8,
+  color: '#000',
+ },
+ SaveButton:{
+  position: 'absolute',
+  bottom: 16,
+  right: 16,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: '#e7feff',
+  height: 80,
+  width: 80,
+  borderRadius: 100,
+ }
+});
